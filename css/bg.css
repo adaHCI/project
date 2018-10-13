@@ -1,0 +1,19 @@
+body {
+  background-image: url("../image/bg.jpg");
+  background-color: #D8FFE1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contentBorder{
+  border-radius: 5px;
+	width: inherit;
+	margin:0px auto;
+	text-align: center;
+	opacity: 0.9;
+  background-color: #FFFFFF;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translateX(-50%) }
+}

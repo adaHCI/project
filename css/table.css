@@ -1,0 +1,13 @@
+.myTable tr td{
+  padding: 2px;
+  vertical-align: top;
+}
+.myTable tr td:nth-child(1){
+  float: right;
+}
+.myTable tr:nth-child(odd) {
+  background: #fff;
+}
+.myTable tr:nth-child(even) {
+  background: #F5FAFA;
+}

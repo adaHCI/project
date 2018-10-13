@@ -24,7 +24,12 @@
       <table>
       <tr><th colspan='2'>Welcome!</th></tr>
       <tr><td>User type:</td><td>
-        <input name="userType" list="type" type="text"/>
+        <select>
+          <option value="staff_teaching">Staff(teaching)</option>
+          <option value="staff_nonTeaching">Staff(non-teaching)</option>
+          <option value="student">Student</option>
+          <option value="alumni">Alumni</option>
+        </select>
       </td></tr>
       <tr><td colspan="2"><input class="input" type="text"  name ="username" required="required" placeholder="Please enter username"/></td></tr>
       <tr><td colspan="2"><input class="input" type="password"  name= "userpwd" required="required" placeholder="Please enter Password"/></td></tr>
@@ -33,13 +38,5 @@
     </form>
 
   </div>
-
-  <!-- datalist-->
-  <datalist id="type">
-  <option value="Staff(teaching)"/>
-  <option value="Staff(non-teaching)"/>
-  <option value="Student"/>
-  <option value="Alumni"/>
-  </datalist>
 </body>
 </html>

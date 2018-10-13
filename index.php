@@ -10,6 +10,9 @@
     vertical-align: top;
     text-align: right;
   }
+  .contentBorder{
+    margin-top: 10%;
+  }
   </style>
 </head>
 

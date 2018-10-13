@@ -4,6 +4,7 @@
 .myTable tr td{
   padding: 2px;
   vertical-align: top;
+  text-align: right;
 }
 .myTable tr:hover{
   background-color: #8FCD98;

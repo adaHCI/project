@@ -3,7 +3,7 @@ body {
   background-color: #D8FFE1;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 .contentBorder{
   border-radius: 5px;

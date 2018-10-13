@@ -1,13 +1,20 @@
+.myTable{
+  border-collapse:inherit;
+}
 .myTable tr td{
   padding: 2px;
   vertical-align: top;
 }
-.myTable tr td:nth-child(1){
+.myTable tr td:nth-child(){
   float: right;
 }
+
+.myTable tr:hover{
+  background-color: #8FCD98;
+}
 .myTable tr:nth-child(odd) {
-  background: #fff;
+  background-color: #fff;
 }
 .myTable tr:nth-child(even) {
-  background: #F5FAFA;
+  background-color: #29CD3F;
 }

@@ -4,16 +4,38 @@
 <head>
   <link rel="stylesheet" type="text/css" media="screen" href="css/bg.css"/>
   <link rel="stylesheet" type="text/css" media="screen" href="css/table.css"/>
+  <style>
+  table tr td{
+    padding: 2px;
+    vertical-align: top;
+    text-align: right;
+  }
+  </style>
 </head>
 
 <body>
   <div class="contentBorder">
-    <table class="myTable">
-      <tr><th>1</th><th>2</th></tr>
-      <tr><td>222</td><td>444</td></tr>
-      <tr><td>33333</td><td>66666</td></tr>
-    </table>
+    <!-- values: userType username userpwd-->
+    <form method="post" action="login.php">
+      <table>
+      <tr><th colspan='2'>Login</th></tr>
+      <tr><td>User type:</td><td>
+        <input name="userType" list="type" type="text"/>
+      </td></tr>
+      <tr><td>User name:</td><td><input name='username' type='text' /></td></tr>
+      <tr><td>Password:</td><td><input name='userpwd' type='password' /></td></tr>
+      <tr><td></td><td><input type='Submit' style='float: right;' /></td></tr>
+      </table>
+    </form>
+
   </div>
 
+  <!-- datalist-->
+  <datalist id="type">
+  <option value="Staff(teaching)"/>
+  <option value="Staff(non-teaching)"/>
+  <option value="Student"/>
+  <option value="Alumni"/>
+  </datalist>
 </body>
 </html>

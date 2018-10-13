@@ -5,10 +5,6 @@
   padding: 2px;
   vertical-align: top;
 }
-.myTable tr td:nth-child(){
-  float: right;
-}
-
 .myTable tr:hover{
   background-color: #8FCD98;
 }

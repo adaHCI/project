@@ -24,7 +24,7 @@
       <table>
       <tr><th colspan='2'>Welcome!</th></tr>
       <tr><td>User type:</td><td>
-        <select>
+        <select name="userType">
           <option value="staff_teaching">Staff(teaching)</option>
           <option value="staff_nonTeaching">Staff(non-teaching)</option>
           <option value="student">Student</option>

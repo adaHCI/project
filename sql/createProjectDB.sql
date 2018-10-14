@@ -32,9 +32,9 @@ CREATE TABLE `students` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `teachingstaff`;
+DROP TABLE IF EXISTS `teachingStaff`;
 
-CREATE TABLE `teachingstaff` (
+CREATE TABLE `teachingStaff` (
   `userID` int(11) NOT NULL,
   `userName` varchar(20) NOT NULL,
   `userPwd` varchar(20) NOT NULL,

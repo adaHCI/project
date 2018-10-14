@@ -24,7 +24,19 @@
 			isValid($loginName, 'User Name');
 			isValid($loginPwd, 'Password');
       /*valid input*/
-
+      require_once('dbsql/conn.php');
+      $table = "";
+      if($loginType == "staff_teaching"){
+        $table = "teachingStaff";
+      }else if($loginType == "staff_nonTeaching"){
+        $table = "non_teachingStaff";
+      }else if($loginType == "student"){
+        $table = "students";
+      }else if($loginType == "alumni"){
+        $table = "alumni";
+      }
+      $sql = $conn->prepare("SELECT ? where userName = ? and userPwd = ?");
+      $sql->bind_param($table,$loginName,$loginPwd);
 		?>
 	</body>
 </html>

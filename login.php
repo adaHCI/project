@@ -40,12 +40,12 @@
         $table = "alumni";
         $url = "alumni/home.php";
       }
-      $sql = "SELECT * FROM '$table' where userName = '$loginName' and userPwd = '$loginPwd';";
+      $sql = "SELECT * FROM $table where userName = '$loginName' and userPwd = '$loginPwd';";
       $rs = mysqli_query($conn,$sql);
       /*successfully login*/
       if(mysqli_num_rows($rs) == 1){
         echo "<div class='contentBorder'>";
-        echo "<p>Please re-enter the information</p>";
+        echo "<p>Login successful!</p>";
         echo "<meta http-equiv=\"refresh\" content=\"3; URL='$url'\"/> ";
         echo "</div>";
       }

@@ -48,6 +48,12 @@
         echo "<p>Login successful!</p>";
         echo "<meta http-equiv=\"refresh\" content=\"3; URL='$url'\"/> ";
         echo "</div>";
+      }else{
+        echo "<div class='contentBorder'>";
+        echo "<p>Login Fail! Wrong user name or password!</p>";
+        echo "<p>Please re-enter the information</p>";
+        echo "<meta http-equiv=\"refresh\" content=\"3; URL='index.php'\"/> ";
+        echo '</div>';
       }
 
 		?>

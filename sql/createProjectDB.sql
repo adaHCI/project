@@ -1,3 +1,6 @@
+
+DROP TABLE IF EXISTS `alumni`;
+
 CREATE TABLE `alumni` (
   `userID` int(11) NOT NULL,
   `userName` varchar(20) NOT NULL,
@@ -6,6 +9,8 @@ CREATE TABLE `alumni` (
   `userPhone` int(20) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `non_teachingStaff`;
 
 CREATE TABLE `non_teachingStaff` (
   `userID` int(11) NOT NULL,
@@ -16,6 +21,8 @@ CREATE TABLE `non_teachingStaff` (
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `students`;
+
 CREATE TABLE `students` (
   `userID` int(11) NOT NULL,
   `userName` varchar(20) NOT NULL,
@@ -24,6 +31,8 @@ CREATE TABLE `students` (
   `userPhone` int(20) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `teachingstaff`;
 
 CREATE TABLE `teachingstaff` (
   `userID` int(11) NOT NULL,

@@ -6,7 +6,6 @@
 </head>
 
 <body>
-Welcome
-non-teaching Staff
+
 </body>
 </html>

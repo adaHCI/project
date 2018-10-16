@@ -3,15 +3,13 @@
 }
 .myTable tr td{
   padding: 2px;
-  vertical-align: top;
-  text-align: right;
 }
-.myTable tr:hover{
-  background-color: #8FCD98;
+.myTable tr:hover td{
+  background-color: #29CD3F;
 }
 .myTable tr:nth-child(odd) {
   background-color: #fff;
 }
 .myTable tr:nth-child(even) {
-  background-color: #29CD3F;
+  background-color: #8FCD98;
 }

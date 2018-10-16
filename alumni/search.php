@@ -5,12 +5,34 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../css/bg.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/topbar.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/input.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/table.css"/>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+	var table;
 	$("#bar2").addClass("active");
+	/*handling searching (type)*/
+	resultHide();
+	$("#type").change(function(){
+		resultHide();
+		table = $("#" + $("#type").val());
+		table.show();
+	});
+	/*handling searching (search by)*/
+	$("#keyWord").keyup(function(){
+		$("#" + $("#type").val() + " tr").each(function(){
+        if($(this).find('td').eq($("#searchBy").val()).text().toLowerCase().indexOf($("#keyWord").val()) != -1){
+            $(this).show();
+        }else{
+						$(this).hide();
+				}
+    });
+	});
 });
+function resultHide() {
+  $("#books").hide();
+}
 </script>
 
 <body>
@@ -25,18 +47,23 @@ $(document).ready(function(){
 			<table>
   		<tr>
 				<td>Item type :</td>
-				<td><input id="type" name="type" list="listType" type="text"></td>
+				<td><select id="type" name="type">
+					<option value="books">books</option>
+					<option value="magazines">magazines</option>
+					<option value="software">software</option>
+					<option value="map">map</option>
+				</select></td>
 				<td>Search by:</td>
 				<td>
 					<select id="searchBy" name="searchBy">
-						<option value="bibID">bibID</option>
-						<option value="name">name</option>
-						<option value="year">year</option>
+						<option value="0">bibID</option>
+						<option value="1">name</option>
+						<option value="2">year</option>
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4" align="right">
+				<td colspan="4" align="left">
 					<img src="../images/search.png" height="15px" width="15px"/>
 					<input name="keyWord" id="keyWord" class="input" type="text" style="width:200px"/>
 				</td>
@@ -45,7 +72,10 @@ $(document).ready(function(){
 			</table>
 		</fieldset>
 	  <fieldset><legend align="left">Result</legend>
-
+			<fieldset id="books"><legend align="left">Books</legend>
+			<?php require_once("../dbsql/getBooksData.php");
+			?>
+			</fieldset>
 		</fieldset>
 </div>
 <datalist id="listType">

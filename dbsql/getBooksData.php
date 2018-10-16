@@ -6,7 +6,7 @@
   echo "<table class='myTable'>
         <tr><th>BibID</th><th>Name</th><th>Year</th><th>Author</th></tr>";
         while($rc = mysqli_fetch_array($rs)){
-          printf("<tr><td id='bibID'>%s</td><td id='name'>%s</td><td id='author'>%s</td><td>%s</td></tr>",$rc['bibID'],$rc['name'],$rc['year'],$rc['author']);
+          printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",$rc['bibID'],$rc['name'],$rc['year'],$rc['author']);
         }
   echo "</table>";
 ?>

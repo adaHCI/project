@@ -4,8 +4,8 @@
 
 	</head>
 	<body>
+		<!-- $_SESSION['table'] $_SESSION['userName'] $_SESSION['userId']-->
 		<?php
-
       function isValid($var,$varName){
 				if(strlen($var) == 0){
           echo "<div class='contentBorder'>";
@@ -44,6 +44,12 @@
       $rs = mysqli_query($conn,$sql);
       /*successfully login*/
       if(mysqli_num_rows($rs) == 1){
+				/*store table ,userName, userId in order for showing and modify*/
+				session_start();
+				$_SESSION['table'] = $table;
+				$_SESSION['userName'] = $loginName;
+				$rc = mysqli_fetch_array($rs);
+				$_SESSION['userId'] = $rc['userID'];
         echo "<div class='contentBorder'>";
         echo "<p>Login successful!</p>";
         echo "<meta http-equiv=\"refresh\" content=\"3; URL='$url'\"/> ";

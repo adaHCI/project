@@ -7,6 +7,7 @@ CREATE TABLE `alumni` (
   `userPwd` varchar(20) NOT NULL,
   `userEmail` varchar(20) NOT NULL,
   `userPhone` int(20) NOT NULL,
+  `isFirstLogin` BIT DEFAULT 1,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -18,6 +19,7 @@ CREATE TABLE `non_teachingStaff` (
   `userPwd` varchar(20) NOT NULL,
   `userEmail` varchar(20) NOT NULL,
   `userPhone` int(20) NOT NULL,
+  `isFirstLogin` BIT DEFAULT 1,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -29,6 +31,7 @@ CREATE TABLE `students` (
   `userPwd` varchar(20) NOT NULL,
   `userEmail` varchar(20) NOT NULL,
   `userPhone` int(20) NOT NULL,
+  `isFirstLogin` BIT DEFAULT 1,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,5 +43,6 @@ CREATE TABLE `teachingStaff` (
   `userPwd` varchar(20) NOT NULL,
   `userEmail` varchar(20) NOT NULL,
   `userPhone` int(20) NOT NULL,
+  `isFirstLogin` BIT DEFAULT 1,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

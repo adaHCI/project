@@ -33,7 +33,7 @@
       </td></tr>
       <tr><td colspan="2"><input class="input" type="text"  name ="username" required="required" placeholder="Please enter username"/></td></tr>
       <tr><td colspan="2"><input class="input" type="password"  name= "userpwd" required="required" placeholder="Please enter Password"/></td></tr>
-      <tr><td></td><td><input type='Submit' style='float: right;' /></td></tr>
+      <tr><td><a href="forgetPasswordForm.php">Forget Password?</a></td><td><input type='Submit' style='float: right;' /></td></tr>
       </table>
     </form>
 

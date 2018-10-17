@@ -6,14 +6,19 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../css/topbar.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/input.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/table.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../popup/popup.css"/>
 </head>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="../jQuery/search.js"></script>
+<script type="text/javascript" src="../popup/popup.js"></script>
 <script>
 $(document).ready(function(){
 	$("#bar2").addClass("active");
 	/*handling searching (type)*/
 	search("#type","#searchBy","#keyWord");
+	popup();
 });
 
 </script>
@@ -73,5 +78,8 @@ $(document).ready(function(){
 			</fieldset>
 		</fieldset>
 </div>
+<?php
+	require_once("../popup/popup.php");
+?>
 </body>
 </html>

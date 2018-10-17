@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
   <link rel="stylesheet" type="text/css" media="screen" href="css/bg.css"/>
   <link rel="stylesheet" type="text/css" media="screen" href="css/table.css"/>
@@ -19,11 +18,12 @@
 
 <body>
   <div class="contentBorder">
-    <form method="post" action="sendPassword.php">
+    <form method="post" action="mail.php">
       <p><b>Forget Password</b></p>
       <p>please enter your registered email to get your password.</p>
       <p><input class="input" name="userEmail" type="email" /></p>
-      <p><a href="index.php" style="float:left">Back</a><input type="submit" value="Send" style="float:right"/></p>
+      <p><a href="index.php" style="float:left">Back</a>
+	  <input type="submit" value="Send" style="float:right"/></p>
 
 
     </form>

@@ -22,16 +22,20 @@ $(document).ready(function(){
 	/*handling searching (search by)*/
 	$("#keyWord").keyup(function(){
 		$("#" + $("#type").val() + " tr").each(function(){
-        if($(this).find('td').eq($("#searchBy").val()).text().toLowerCase().indexOf($("#keyWord").val()) != -1){
+        if($(this).find("td").eq($("#searchBy").val()).text().toLowerCase().indexOf($("#keyWord").val()) != -1){
             $(this).show();
         }else{
 						$(this).hide();
 				}
+				$(this).parent().children("tr:first").show();
     });
 	});
 });
 function resultHide() {
   $("#books").hide();
+	$("#magazines").hide();
+	$("#map").hide();
+	$("#software").hide();
 }
 </script>
 
@@ -74,6 +78,18 @@ function resultHide() {
 	  <fieldset><legend align="left">Result</legend>
 			<fieldset id="books"><legend align="left">Books</legend>
 			<?php require_once("../dbsql/getBooksData.php");
+			?>
+			</fieldset>
+			<fieldset id="magazines"><legend align="left">Magazines</legend>
+			<?php require_once("../dbsql/getMagazinesData.php");
+			?>
+			</fieldset>
+			<fieldset id="map"><legend align="left">Map</legend>
+			<?php require_once("../dbsql/getMapData.php");
+			?>
+			</fieldset>
+			<fieldset id="software"><legend align="left">software</legend>
+			<?php require_once("../dbsql/getSoftwareData.php");
 			?>
 			</fieldset>
 		</fieldset>

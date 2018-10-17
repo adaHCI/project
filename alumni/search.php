@@ -8,35 +8,14 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../css/table.css"/>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="../jQuery/search.js"></script>
 <script>
 $(document).ready(function(){
-	var table;
 	$("#bar2").addClass("active");
 	/*handling searching (type)*/
-	resultHide();
-	$("#type").change(function(){
-		resultHide();
-		table = $("#" + $("#type").val());
-		table.show();
-	});
-	/*handling searching (search by)*/
-	$("#keyWord").keyup(function(){
-		$("#" + $("#type").val() + " tr").each(function(){
-        if($(this).find("td").eq($("#searchBy").val()).text().toLowerCase().indexOf($("#keyWord").val()) != -1){
-            $(this).show();
-        }else{
-						$(this).hide();
-				}
-				$(this).parent().children("tr:first").show();
-    });
-	});
+	search("#type","#searchBy","#keyWord");
 });
-function resultHide() {
-  $("#books").hide();
-	$("#magazines").hide();
-	$("#map").hide();
-	$("#software").hide();
-}
+
 </script>
 
 <body>
@@ -94,11 +73,5 @@ function resultHide() {
 			</fieldset>
 		</fieldset>
 </div>
-<datalist id="listType">
-  <option value="books"/>
-  <option value="magazines"/>
-  <option value="software"/>
-  <option value="map"/>
-</datalist>
 </body>
 </html>

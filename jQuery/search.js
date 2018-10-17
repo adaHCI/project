@@ -1,6 +1,6 @@
 /*
 id : keyWord type searchBy
-type = books/magazines/map/software
+type value must be books/magazines/map/software
 searchBy is an index of table
 table id : "#+type.val()"*/
 function resultHide() {

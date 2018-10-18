@@ -13,10 +13,9 @@ function resultHide() {
 function search(strTypeID,strSearchBy,strKeyWordID) {
   var table;
   resultHide();
+  showTable(strTypeID);
   $(strTypeID).change(function(){
-    resultHide();
-    table = $("#" + $(strTypeID).val());
-    table.show();
+    showTable(strTypeID);
   });
   /*handling searching (search by)*/
   $(strKeyWordID).keyup(function(){
@@ -29,4 +28,10 @@ function search(strTypeID,strSearchBy,strKeyWordID) {
         $(this).parent().children("tr:first").show();
     });
   });
+}
+
+function showTable(strTypeID){
+  resultHide();
+  table = $("#" + $(strTypeID).val());
+  table.show();
 }

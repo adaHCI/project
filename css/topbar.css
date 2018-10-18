@@ -17,7 +17,11 @@
     float: left;
 }
 
-.topBar li a {
+.topBar label {
+  color: #99FF99;
+}
+
+.topBar li .barItem {
     display: block;
     color: white;
     text-align: center;
@@ -25,15 +29,9 @@
     text-decoration: none;
 }
 
-.topBar li a:hover:not(.active) {
+.topBar li .barItem:hover:not(.active) {
     background-color: #111;
 }
-
-.menu{
-	margin-bottom: 20px;
-	overflow: hidden;
-}
-
 .topBar .active {
     background-color: #4CAF50;
 }

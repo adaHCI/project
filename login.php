@@ -5,6 +5,7 @@
 	</head>
 	<body>
 		<!-- $_SESSION['table'] $_SESSION['userName'] $_SESSION['userId']-->
+		<!-- table session is userType-->
 		<?php
       function isValid($var,$varName){
 				if(strlen($var) == 0){

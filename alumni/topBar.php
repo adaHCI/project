@@ -16,10 +16,12 @@
     <ul>
       <li><label>Account Info</label></br>
       <label>ID:$userId</label></br>
-      <label>Name:$userName</label></li>
-      <li><a href="logout.php">Logout</a></li>
-      <li id="bar1"><a href="home.php">Home</a></li>
-      <li id="bar2"><a href="search.php">Search</a></li>
+      <label style="float:left">Name:$userName</label>
+      <div style="float:left"><a href="profile.php" style="color: #66FFFF;"><b>Change Password</b></div></a>
+      </li>
+      <li><a class="barItem" href="logout.php">Logout</a></li>
+      <li id="bar1"><a class="barItem" href="home.php">Home</a></li>
+      <li id="bar2"><a class="barItem" href="search.php">Search</a></li>
     </ul>
   </div>
 EOD;

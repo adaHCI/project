@@ -11,8 +11,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../jQuery/search.js"></script>
-<script type="text/javascript" src="../popup/popup.js"></script>
+<script type="text/javascript" src="../functions/search/search.js"></script>
+<script type="text/javascript" src="../functions/search/popup/popup.js"></script>
 <script>
 $(document).ready(function(){
 	$("#bar2").addClass("active");
@@ -36,7 +36,7 @@ $(document).ready(function(){
   		<tr>
 				<td>Item type :</td>
 				<td><select id="type" name="type">
-					<option value="books">books</option>
+					<option value="books" selected="selected">books</option>
 					<option value="magazines">magazines</option>
 					<option value="software">software</option>
 					<option value="map">map</option>
@@ -44,7 +44,7 @@ $(document).ready(function(){
 				<td>Search by:</td>
 				<td>
 					<select id="searchBy" name="searchBy">
-						<option value="0">bibID</option>
+						<option value="0" selected="selected">bibID</option>
 						<option value="1">name</option>
 						<option value="2">year</option>
 					</select>
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		</fieldset>
 </div>
 <?php
-	require_once("../popup/popup.php");
+	require_once("../functions/search/popup/popup.php");
 ?>
 </body>
 </html>

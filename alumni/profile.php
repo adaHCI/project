@@ -12,9 +12,9 @@ $(document).ready(function(){
 });
 </script>
 <body>
-<?php
-	require_once("topBar.php");
-?>
+	<?php
+		require_once("topBar.php");
+	?>
 <br/>
 <div class="contentBorder">
   <?php

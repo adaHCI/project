@@ -1,7 +1,13 @@
 <?php
 /*editOldPwd editNewPwd*/
-$type = $_SESSION["table"];
-$userID = $_SESSION["userID"];
+$type = "";
+$userID = "";
+if(isset($_SESSION["table"])){
+  $type = $_SESSION["table"];
+}
+if(isset($_SESSION["userID"])){
+  $userID = $_SESSION["userID"];
+}
 $form = <<<EOD
 <form method="post" action="../sqlHandling/changePassword.php">
   <input type="text" name="type" value="$type" style="visibility: hidden" readonly/>

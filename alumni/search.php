@@ -26,6 +26,7 @@ $(document).ready(function(){
 <body>
 <?php
 	require_once("topBar.php");
+	require_once("../functions/checkFirstLogin.php");
 ?>
 <br/>
 <div class="contentBorder">

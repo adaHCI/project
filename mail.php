@@ -1,3 +1,8 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/bg.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/topbar.css"/>
 <?php
   require_once('dbsql/conn.php');
 $email=$_REQUEST["userEmail"];
@@ -6,11 +11,10 @@ $query = mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($query);
 
 require 'PHPMailer-master/PHPMailerAutoload.php';
-
 $mail = new PHPMailer();
   
   //Enable SMTP debugging.
-  $mail->SMTPDebug = 1;
+  $mail->SMTPDebug = 0;
   //Set PHPMailer to use SMTP.
   $mail->isSMTP();
   //Set SMTP host name
@@ -39,14 +43,23 @@ $mail = new PHPMailer();
   
   $mail->isHTML(true);
  
-  $mail->Subject = "test mail";
-  $mail->Body = "<i>this is your password:</i>".$row["userPwd"];
-  $mail->AltBody = "This is the plain text version of the email content";
+  $mail->Subject = "It is forget password!";
+  $mail->Body = "<i>HI,<br />This is your password:</i>".$row["userPwd"]."<br />==============================================<br />go http://localhost/project/";
+  $mail->AltBody = "This is the plain text version of the email content <a href=''>";
+  ?>
+  </head>
+  <body>
+  <?php
   if(!$mail->Send())
   {
    echo "Mailer Error: " . $mail->ErrorInfo;
   }
   else
   {
-   echo "Message has been sent successfully";
+   echo "<div class='contentBorder'>";
+   echo "Message has been sent successfully. Please go to the email to check your <a href='https://mail.google.com/mail' target='blank'>email.</a><br />
+   <a href='index.php'>Home</a>";
+   echo "</div>";
   }
+  ?>
+  

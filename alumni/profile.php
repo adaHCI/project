@@ -11,21 +11,15 @@ $(document).ready(function(){
 	$("#bar1").addClass("active");
 });
 </script>
-
 <body>
 <?php
 	require_once("topBar.php");
 ?>
+<br/>
 <div class="contentBorder">
-  <form method="post" action="">
-    <table>
-      <tr><th colspan="2">Change Password</th></tr>
-      <tr><td>Your old password:</td><td><input type="password"/></td></tr>
-      <tr><td>Retype password:</td><td><input type="password"/></td></tr>
-      <tr><td>New password:</td><td><input type="password"/></td></tr>
-      <tr><td colspan="2"><input type="submit" style="float: right"/></td></tr>
-    </table>
-  </form>
+  <?php
+		require_once("../functions/changePassword/form.php");
+	?>
 </div>
 </body>
 </html>

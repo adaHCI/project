@@ -4,7 +4,7 @@
 
 	</head>
 	<body>
-		<!-- $_SESSION['table'] $_SESSION['userName'] $_SESSION['userId']-->
+		<!-- $_SESSION['table'] $_SESSION['userName'] $_SESSION['userId'] $_SESSION['isUserFirstLogin']-->
 		<!-- table session is userType-->
 		<?php
       function isValid($var,$varName){
@@ -19,8 +19,8 @@
 			}
 
       $loginType = $_POST['userType'];
-			$loginName = $_POST['username'];
-			$loginPwd = $_POST['userpwd'];
+			$loginName = $_POST['userName'];
+			$loginPwd = $_POST['userPwd'];
       isValid($loginType, 'user Type');
 			isValid($loginName, 'User Name');
 			isValid($loginPwd, 'Password');
@@ -50,7 +50,8 @@
 				$_SESSION['table'] = $table;
 				$_SESSION['userName'] = $loginName;
 				$rc = mysqli_fetch_array($rs);
-				$_SESSION['userId'] = $rc['userID'];
+				$_SESSION['userID'] = $rc['userID'];
+				$_SESSION['isUserFirstLogin'] = $rc['isFirstLogin'];
         echo "<div class='contentBorder'>";
         echo "<p>Login successful!</p>";
         echo "<meta http-equiv=\"refresh\" content=\"3; URL='$url'\"/> ";

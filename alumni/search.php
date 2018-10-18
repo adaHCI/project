@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../css/topbar.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/input.css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="../css/table.css"/>
-<link rel="stylesheet" type="text/css" media="screen" href="../popup/popup.css"/>
 </head>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="../functions/search/popup/popup.css"/>
 <script type="text/javascript" src="../functions/search/search.js"></script>
 <script type="text/javascript" src="../functions/search/popup/popup.js"></script>
 <script>

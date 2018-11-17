@@ -41,7 +41,7 @@
         $table = "alumni";
         $url = "alumni/home.php";
       }
-      $sql = "SELECT * FROM $table where userName = '$loginName' and userPwd = '$loginPwd';";
+      $sql = "SELECT user.userID,user.userName,user.userPwd,user.isFirstLogin FROM user,$table where userName = '$loginName' and userPwd = '$loginPwd';";
       $rs = mysqli_query($conn,$sql);
       /*successfully login*/
       if(mysqli_num_rows($rs) == 1){

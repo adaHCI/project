@@ -36,7 +36,7 @@
         $url = "non_teachingStaff/home.php";
       }else if($loginType == "student"){
         $table = "students";
-        $url = "student/home.php";
+        $url = "students/home.php";
       }else if($loginType == "alumni"){
         $table = "alumni";
         $url = "alumni/home.php";

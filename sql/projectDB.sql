@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2018 at 05:32 PM
+-- Generation Time: Nov 18, 2018 at 06:57 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -21,12 +21,15 @@ SET time_zone = "+00:00";
 --
 -- Database: `projectDB`
 --
+CREATE DATABASE IF NOT EXISTS `projectDB` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `projectDB`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `alumni`
 --
+
 DROP TABLE IF EXISTS `alumni`;
 CREATE TABLE `alumni` (
   `userID` int(11) NOT NULL,
@@ -46,6 +49,7 @@ INSERT INTO `alumni` (`userID`, `maxReserve`, `currReserve`) VALUES
 --
 -- Table structure for table `books`
 --
+
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books` (
   `bibID` varchar(50) NOT NULL,
@@ -80,61 +84,64 @@ INSERT INTO `books` (`bibID`, `name`, `callNumber`, `author`, `physicalDescripti
 --
 -- Table structure for table `items`
 --
+
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
-  `bibID` varchar(50) NOT NULL
+  `bibID` varchar(50) NOT NULL,
+  `userID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`bibID`) VALUES
-('000813254'),
-('000813257'),
-('000962622'),
-('001043256'),
-('001044490'),
-('001045788'),
-('003382170'),
-('003386017'),
-('003393321'),
-('003425739'),
-('003432369'),
-('003435677'),
-('003443013'),
-('003444053'),
-('003462292'),
-('003493912'),
-('003494404'),
-('003494417'),
-('003496926'),
-('003500632'),
-('003500680'),
-('003500932'),
-('003505134'),
-('003505731'),
-('003506021'),
-('003506576'),
-('003508963'),
-('003511418'),
-('003515364'),
-('003515614'),
-('003515629'),
-('003515637'),
-('003515650'),
-('003516372'),
-('003517698'),
-('003517953'),
-('003518592'),
-('003519747'),
-('003519750');
+INSERT INTO `items` (`bibID`, `userID`) VALUES
+('000813254', NULL),
+('000813257', NULL),
+('000962622', NULL),
+('001043256', NULL),
+('001044490', NULL),
+('001045788', NULL),
+('003382170', NULL),
+('003386017', NULL),
+('003393321', NULL),
+('003425739', NULL),
+('003432369', NULL),
+('003435677', NULL),
+('003443013', NULL),
+('003444053', NULL),
+('003462292', NULL),
+('003493912', NULL),
+('003494404', NULL),
+('003494417', NULL),
+('003496926', NULL),
+('003500632', NULL),
+('003500680', NULL),
+('003500932', NULL),
+('003505134', NULL),
+('003505731', NULL),
+('003506021', NULL),
+('003506576', NULL),
+('003508963', NULL),
+('003511418', NULL),
+('003515364', NULL),
+('003515614', NULL),
+('003515629', NULL),
+('003515637', NULL),
+('003515650', NULL),
+('003516372', NULL),
+('003517698', NULL),
+('003517953', NULL),
+('003518592', NULL),
+('003519747', NULL),
+('003519750', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `magazines`
 --
+
 DROP TABLE IF EXISTS `magazines`;
 CREATE TABLE `magazines` (
   `bibID` varchar(50) NOT NULL,
@@ -165,6 +172,7 @@ INSERT INTO `magazines` (`bibID`, `name`, `callNumber`, `frequency`, `placeOfPub
 --
 -- Table structure for table `map`
 --
+
 DROP TABLE IF EXISTS `map`;
 CREATE TABLE `map` (
   `bibID` varchar(50) NOT NULL,
@@ -200,6 +208,7 @@ INSERT INTO `map` (`bibID`, `name`, `callNumber`, `physicalDescription`, `placeO
 --
 -- Table structure for table `non_teachingstaff`
 --
+
 DROP TABLE IF EXISTS `non_teachingstaff`;
 CREATE TABLE `non_teachingstaff` (
   `userID` int(11) NOT NULL,
@@ -219,6 +228,7 @@ INSERT INTO `non_teachingstaff` (`userID`, `maxReserve`, `currReserve`) VALUES
 --
 -- Table structure for table `software`
 --
+
 DROP TABLE IF EXISTS `software`;
 CREATE TABLE `software` (
   `bibID` varchar(50) NOT NULL,
@@ -249,6 +259,7 @@ INSERT INTO `software` (`bibID`, `name`, `callNumber`, `placeOfPublication`, `pu
 --
 -- Table structure for table `students`
 --
+
 DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
   `userID` int(11) NOT NULL,
@@ -268,6 +279,7 @@ INSERT INTO `students` (`userID`, `maxReserve`, `currReserve`) VALUES
 --
 -- Table structure for table `teachingstaff`
 --
+
 DROP TABLE IF EXISTS `teachingstaff`;
 CREATE TABLE `teachingstaff` (
   `userID` int(11) NOT NULL,
@@ -287,6 +299,7 @@ INSERT INTO `teachingstaff` (`userID`, `maxReserve`, `currReserve`) VALUES
 --
 -- Table structure for table `user`
 --
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userID` int(11) NOT NULL,

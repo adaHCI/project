@@ -61,22 +61,14 @@ $(document).ready(function(){
 			</table>
 		</fieldset>
 	  <fieldset><legend align="left">Result</legend>
-			<fieldset id="books"><legend align="left">Books</legend>
 			<?php require_once("../dbsql/getBooksData.php");
 			?>
-			</fieldset>
-			<fieldset id="magazines"><legend align="left">Magazines</legend>
 			<?php require_once("../dbsql/getMagazinesData.php");
 			?>
-			</fieldset>
-			<fieldset id="map"><legend align="left">Map</legend>
 			<?php require_once("../dbsql/getMapData.php");
 			?>
-			</fieldset>
-			<fieldset id="software"><legend align="left">software</legend>
 			<?php require_once("../dbsql/getSoftwareData.php");
 			?>
-			</fieldset>
 		</fieldset>
 </div>
 <?php

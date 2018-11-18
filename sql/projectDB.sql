@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 18, 2018 at 06:57 AM
+-- Generation Time: Nov 18, 2018 at 04:07 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -87,54 +87,53 @@ INSERT INTO `books` (`bibID`, `name`, `callNumber`, `author`, `physicalDescripti
 
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
-  `bibID` varchar(50) NOT NULL,
-  `userID` int(11) DEFAULT NULL
+  `bibID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`bibID`, `userID`) VALUES
-('000813254', NULL),
-('000813257', NULL),
-('000962622', NULL),
-('001043256', NULL),
-('001044490', NULL),
-('001045788', NULL),
-('003382170', NULL),
-('003386017', NULL),
-('003393321', NULL),
-('003425739', NULL),
-('003432369', NULL),
-('003435677', NULL),
-('003443013', NULL),
-('003444053', NULL),
-('003462292', NULL),
-('003493912', NULL),
-('003494404', NULL),
-('003494417', NULL),
-('003496926', NULL),
-('003500632', NULL),
-('003500680', NULL),
-('003500932', NULL),
-('003505134', NULL),
-('003505731', NULL),
-('003506021', NULL),
-('003506576', NULL),
-('003508963', NULL),
-('003511418', NULL),
-('003515364', NULL),
-('003515614', NULL),
-('003515629', NULL),
-('003515637', NULL),
-('003515650', NULL),
-('003516372', NULL),
-('003517698', NULL),
-('003517953', NULL),
-('003518592', NULL),
-('003519747', NULL),
-('003519750', NULL);
+INSERT INTO `items` (`bibID`) VALUES
+('000813254'),
+('000813257'),
+('000962622'),
+('001043256'),
+('001044490'),
+('001045788'),
+('003382170'),
+('003386017'),
+('003393321'),
+('003425739'),
+('003432369'),
+('003435677'),
+('003443013'),
+('003444053'),
+('003462292'),
+('003493912'),
+('003494404'),
+('003494417'),
+('003496926'),
+('003500632'),
+('003500680'),
+('003500932'),
+('003505134'),
+('003505731'),
+('003506021'),
+('003506576'),
+('003508963'),
+('003511418'),
+('003515364'),
+('003515614'),
+('003515629'),
+('003515637'),
+('003515650'),
+('003516372'),
+('003517698'),
+('003517953'),
+('003518592'),
+('003519747'),
+('003519750');
 
 -- --------------------------------------------------------
 
@@ -222,6 +221,20 @@ CREATE TABLE `non_teachingstaff` (
 
 INSERT INTO `non_teachingstaff` (`userID`, `maxReserve`, `currReserve`) VALUES
 (2, 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reserve`
+--
+
+DROP TABLE IF EXISTS `reserve`;
+CREATE TABLE `reserve` (
+  `reserveID` int(10) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `bibID` varchar(50) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -315,7 +328,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userEmail`, `userPhone`, `isFirstLogin`) VALUES
-(1, 'BunChai', '123456', 'BunChai@gmail.com', 65462344, b'1'),
+(1, 'BunChai', '654321', 'BunChai@gmail.com', 65462344, b'0'),
 (2, 'Changchat', '123456', 'Changchat@gmail.com', 53578956, b'1'),
 (3, 'Chakcham', '123456', 'Chakcham@gmail.com', 56795621, b'1'),
 (4, 'Cheungchi', '123456', 'Cheungchi@gmail.com', 54689852, b'1');
@@ -361,6 +374,14 @@ ALTER TABLE `non_teachingstaff`
   ADD PRIMARY KEY (`userID`);
 
 --
+-- Indexes for table `reserve`
+--
+ALTER TABLE `reserve`
+  ADD PRIMARY KEY (`reserveID`),
+  ADD KEY `fk5` (`userID`),
+  ADD KEY `fk6` (`bibID`);
+
+--
 -- Indexes for table `software`
 --
 ALTER TABLE `software`
@@ -385,6 +406,16 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `reserve`
+--
+ALTER TABLE `reserve`
+  MODIFY `reserveID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -399,6 +430,13 @@ ALTER TABLE `alumni`
 --
 ALTER TABLE `non_teachingstaff`
   ADD CONSTRAINT `fk2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
+
+--
+-- Constraints for table `reserve`
+--
+ALTER TABLE `reserve`
+  ADD CONSTRAINT `fk5` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
+  ADD CONSTRAINT `fk6` FOREIGN KEY (`bibID`) REFERENCES `items` (`bibID`);
 
 --
 -- Constraints for table `students`

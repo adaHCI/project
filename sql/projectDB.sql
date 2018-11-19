@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 18, 2018 at 04:07 PM
+-- Generation Time: Nov 19, 2018 at 06:28 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -87,53 +87,54 @@ INSERT INTO `books` (`bibID`, `name`, `callNumber`, `author`, `physicalDescripti
 
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
-  `bibID` varchar(50) NOT NULL
+  `bibID` varchar(50) NOT NULL,
+  `stock` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`bibID`) VALUES
-('000813254'),
-('000813257'),
-('000962622'),
-('001043256'),
-('001044490'),
-('001045788'),
-('003382170'),
-('003386017'),
-('003393321'),
-('003425739'),
-('003432369'),
-('003435677'),
-('003443013'),
-('003444053'),
-('003462292'),
-('003493912'),
-('003494404'),
-('003494417'),
-('003496926'),
-('003500632'),
-('003500680'),
-('003500932'),
-('003505134'),
-('003505731'),
-('003506021'),
-('003506576'),
-('003508963'),
-('003511418'),
-('003515364'),
-('003515614'),
-('003515629'),
-('003515637'),
-('003515650'),
-('003516372'),
-('003517698'),
-('003517953'),
-('003518592'),
-('003519747'),
-('003519750');
+INSERT INTO `items` (`bibID`, `stock`) VALUES
+('000813254', 0),
+('000813257', 1),
+('000962622', 1),
+('001043256', 0),
+('001044490', 1),
+('001045788', 1),
+('003382170', 1),
+('003386017', 0),
+('003393321', 1),
+('003425739', 1),
+('003432369', 1),
+('003435677', 1),
+('003443013', 0),
+('003444053', 1),
+('003462292', 0),
+('003493912', 1),
+('003494404', 1),
+('003494417', 0),
+('003496926', 1),
+('003500632', 1),
+('003500680', 1),
+('003500932', 0),
+('003505134', 1),
+('003505731', 0),
+('003506021', 1),
+('003506576', 0),
+('003508963', 1),
+('003511418', 1),
+('003515364', 1),
+('003515614', 1),
+('003515629', 1),
+('003515637', 0),
+('003515650', 1),
+('003516372', 1),
+('003517698', 1),
+('003517953', 1),
+('003518592', 1),
+('003519747', 1),
+('003519750', 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +234,7 @@ CREATE TABLE `reserve` (
   `reserveID` int(10) NOT NULL,
   `userID` int(11) NOT NULL,
   `bibID` varchar(50) NOT NULL,
-  `date` date NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -330,7 +331,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userEmail`, `userPhone`, `isFirstLogin`) VALUES
 (1, 'BunChai', '654321', 'BunChai@gmail.com', 65462344, b'0'),
 (2, 'Changchat', '123456', 'Changchat@gmail.com', 53578956, b'1'),
-(3, 'Chakcham', '123456', 'Chakcham@gmail.com', 56795621, b'1'),
+(3, 'Chakcham', '654321', 'Chakcham@gmail.com', 56795621, b'0'),
 (4, 'Cheungchi', '123456', 'Cheungchi@gmail.com', 54689852, b'1');
 
 --
@@ -378,8 +379,8 @@ ALTER TABLE `non_teachingstaff`
 --
 ALTER TABLE `reserve`
   ADD PRIMARY KEY (`reserveID`),
-  ADD KEY `fk5` (`userID`),
-  ADD KEY `fk6` (`bibID`);
+  ADD KEY `fk6` (`bibID`),
+  ADD KEY `fk7` (`userID`);
 
 --
 -- Indexes for table `software`
@@ -413,7 +414,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserveID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `reserveID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
@@ -435,8 +436,8 @@ ALTER TABLE `non_teachingstaff`
 -- Constraints for table `reserve`
 --
 ALTER TABLE `reserve`
-  ADD CONSTRAINT `fk5` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  ADD CONSTRAINT `fk6` FOREIGN KEY (`bibID`) REFERENCES `items` (`bibID`);
+  ADD CONSTRAINT `fk6` FOREIGN KEY (`bibID`) REFERENCES `items` (`bibID`),
+  ADD CONSTRAINT `fk7` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
 
 --
 -- Constraints for table `students`

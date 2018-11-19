@@ -1,10 +1,10 @@
 <?php
   require_once("conn.php");
   $searchBy = $_POST['searchBy'];
-  $sql = "SELECT software.bibID, software.name, software.year, software.language, software.publisher,reserve.date
+  $sql = "SELECT software.bibID, software.name, software.year, software.language, software.publisher,items.stock
           FROM software
-          LEFT JOIN reserve
-          ON software.bibID = reserve.bibID";
+          LEFT JOIN items
+          ON software.bibID = items.bibID";
   if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
     $sql .= " WHERE software." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
   }
@@ -17,13 +17,13 @@
           printf("<td>%s<img class='popup' value='%s'
           src='../images/show.png' width='20px' height='20px'/></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>",
           $rc['bibID'],$rc['bibID'],$rc['name'],$rc['year'],$rc['language'],$rc['publisher']);
-          if($rc['date'] != null){
+          if($rc['stock'] == 0){
             echo "<td><img src='../images/crossbox.png' width='20px' height='20px'/></td>";
           }else{
-            echo "<td><img src='../images/tickbox.png' width='20px' height='20px'/>";
-            echo "<a href='reserve.php?bibID=".$rc['bibID']."'>";
-            echo "<img src='../images/reserveIcon.png' width='20px' height='20px'/>";
-            echo "</a>";
+            echo "<td><img style='float:left;' src='../images/tickbox.png' width='20px' height='20px'/>";
+            echo "<div style='float: left;' id='submit'>";
+            echo "<img alt='".$rc['bibID']."' src='../images/reserveIcon.png' width='20px' height='20px'/>";
+            echo "</div>";
             echo "</td>";
           }
           echo "</tr>";

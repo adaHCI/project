@@ -19,6 +19,17 @@ $(document).ready(function(){
 	/*handling searching (type)*/
 	popup();
 	search("#type","#searchBy","#keyWord");
+	$(document).on("click","#submit",function(e){
+		$.ajax({
+            type: 'post',
+            url: '../functions/reserve/reserve.php',
+            data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text()},
+            success: function (r) {
+              alert('Item was reserved');
+							location.reload();
+            }
+          });
+	});
 });
 
 </script>
@@ -31,7 +42,7 @@ $(document).ready(function(){
 <br/>
 <div class="contentBorder">
 
-  <h3>Search Items:</h3>
+  <h3>Search Items:</h3><?php echo "<p id='uId' hidden='hidden'>$_SESSION[userID]</p>";?>
 		<fieldset><legend align="left">Search Options</legend>
 			<table>
   		<tr>

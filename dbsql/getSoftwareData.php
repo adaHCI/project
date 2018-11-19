@@ -4,7 +4,7 @@
   $sql = "SELECT software.bibID, software.name, software.year, software.language, software.publisher,reserve.date
           FROM software
           LEFT JOIN reserve
-          ON software.bibID = reserve.bibID;";
+          ON software.bibID = reserve.bibID";
   if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
     $sql .= " WHERE software." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
   }

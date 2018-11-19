@@ -41,12 +41,12 @@ function showTable(strTypeID,strSearchBy,strKeyWordID){
          url : strUrl,
         data :  {searchBy:$(strSearchBy).val(),keyWord:$(strKeyWordID).val()},
      success : function(r)
-         {
+     {
             $("#itemsData").html(r);
-         }
-     error : function(r){
+     },
+     error : function(r)
+     {
        alert("error!");
      }
     });
-
 }

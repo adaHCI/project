@@ -9,7 +9,6 @@
   if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
     $sql .= " WHERE magazines." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
   }
-
   $rs = mysqli_query($conn,$sql) or die(mysqli_error($conn));
   echo "<fieldset id='magazines'><legend align='left'>Magazines</legend>";
   echo "<table class='myTable'>

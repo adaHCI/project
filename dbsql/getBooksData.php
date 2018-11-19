@@ -7,7 +7,7 @@
           ON books.bibID = reserve.bibID";
 
   if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
-    $sql .= " WHERE books." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
+      $sql .= " WHERE books." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
   }
   $rs = mysqli_query($conn, $sql) or die(mysqli_error($conn));
   echo "<fieldset id='books'><legend align='left'>Books</legend>";

@@ -41,12 +41,13 @@
         $table = "alumni";
         $url = "alumni/home.php";
       }
+
       $sql = "SELECT user.userID,user.userName,user.userPwd,user.isFirstLogin
 							FROM user,$table where userName = '$loginName' and userPwd = '$loginPwd'
-							and user.userID = '$table'.userID;";
-      $rs = mysqli_query($conn,$sql);
+							and user.userID = $table.userID;";
+      $rs = mysqli_query($conn,$sql) or die(mysqli_error($conn));
       /*successfully login*/
-      if(mysqli_num_rows($rs) == 1){
+				if(mysqli_num_rows($rs) == 1){
 				/*store table ,userName, userId in order for showing and modify*/
 				session_start();
 				$_SESSION['table'] = $table;

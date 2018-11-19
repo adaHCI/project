@@ -44,6 +44,9 @@ function showTable(strTypeID,strSearchBy,strKeyWordID){
          {
             $("#itemsData").html(r);
          }
+     error : function(r){
+       alert("error!");
+     }
     });
 
 }

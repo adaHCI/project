@@ -1,9 +1,13 @@
 <?php
   require_once("conn.php");
+  $searchBy = $_POST['searchBy'];
   $sql = "SELECT map.bibID, map.name, map.year, map.language, map.placeOfPublication,reserve.date
-  FROM map
-  LEFT JOIN reserve
-  ON map.bibID = reserve.bibID;";
+          FROM map
+          LEFT JOIN reserve
+          ON map.bibID = reserve.bibID";
+  if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
+    $sql .= " WHERE map." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
+  }
   $rs = mysqli_query($conn, $sql) or die(mysqli_error($conn));
   echo "<fieldset id='map'><legend align='left'>Map</legend>";
   echo "<table class='myTable'>

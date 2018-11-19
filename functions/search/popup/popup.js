@@ -1,5 +1,5 @@
 function popup(){
-  $(".popup").click(function(){
+  $(document).on("click",".popup",function(){
     $src = "../data/";
     $src += $("#type").val() + "/";
     $src += $(this).attr("value");

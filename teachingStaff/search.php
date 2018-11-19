@@ -17,8 +17,8 @@
 $(document).ready(function(){
 	$("#bar2").addClass("active");
 	/*handling searching (type)*/
-	search("#type","#searchBy","#keyWord");
 	popup();
+	search("#type","#searchBy","#keyWord");
 });
 
 </script>
@@ -45,9 +45,9 @@ $(document).ready(function(){
 				<td>Search by:</td>
 				<td>
 					<select id="searchBy" name="searchBy">
-						<option value="0" selected="selected">bibID</option>
-						<option value="1">name</option>
-						<option value="2">year</option>
+						<option value="bibID" selected="selected">bibID</option>
+						<option value="name">name</option>
+						<option value="year">year</option>
 					</select>
 				</td>
 			</tr>
@@ -61,14 +61,7 @@ $(document).ready(function(){
 			</table>
 		</fieldset>
 	  <fieldset><legend align="left">Result</legend>
-			<?php require_once("../dbsql/getBooksData.php");
-			?>
-			<?php require_once("../dbsql/getMagazinesData.php");
-			?>
-			<?php require_once("../dbsql/getMapData.php");
-			?>
-			<?php require_once("../dbsql/getSoftwareData.php");
-			?>
+			<div id="itemsData"></div>
 		</fieldset>
 </div>
 <?php

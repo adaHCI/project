@@ -4,34 +4,46 @@ type value must be books/magazines/map/software
 searchBy is an index of table
 table id : "#+type.val()"*/
 function resultHide() {
-  $("#books").hide();
-	$("#magazines").hide();
-	$("#map").hide();
-	$("#software").hide();
+  $("#booksData").empty();
+  $("#magazinesData").empty();
+  $("#mapsData").empty();
+  $("#softwareData").empty();
 }
-
 function search(strTypeID,strSearchBy,strKeyWordID) {
-  var table;
   resultHide();
-  showTable(strTypeID);
+  showTable(strTypeID,strSearchBy,strKeyWordID);
   $(strTypeID).change(function(){
-    showTable(strTypeID);
+    showTable(strTypeID,strSearchBy,strKeyWordID);
   });
-  /*handling searching (search by)*/
+  $(strSearchBy).change(function(){
+    showTable(strTypeID,strSearchBy,strKeyWordID);
+  });
   $(strKeyWordID).keyup(function(){
-    $("#" + $(strTypeID).val() + " tr").each(function(){
-        if($(this).find("td").eq($("#searchBy").val()).text().toLowerCase().indexOf($(strKeyWordID).val()) != -1){
-            $(this).show();
-        }else{
-            $(this).hide();
-        }
-        $(this).parent().children("tr:first").show();
-    });
+    showTable(strTypeID,strSearchBy,strKeyWordID);
   });
 }
 
-function showTable(strTypeID){
+function showTable(strTypeID,strSearchBy,strKeyWordID){
   resultHide();
-  table = $("#" + $(strTypeID).val());
-  table.show();
+  var itemType = $(strTypeID).val();
+  var strUrl;
+  if(itemType == "books"){
+    strUrl = "../dbsql/getBooksData.php";
+  }else if(itemType == "magazines"){
+    strUrl = "../dbsql/getMagazinesData.php";
+  }else if(itemType == "map"){
+    strUrl = "../dbsql/getMapData.php";
+  }else if(itemType == "software"){
+    strUrl = "../dbsql/getSoftwareData.php";
+  }
+  $.ajax({
+        type : 'post',
+         url : strUrl,
+        data :  {searchBy:$(strSearchBy).val(),keyWord:$(strKeyWordID).val()},
+     success : function(r)
+         {
+            $("#itemsData").html(r);
+         }
+    });
+
 }

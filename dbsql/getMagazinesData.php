@@ -1,9 +1,15 @@
 <?php
   require_once("conn.php");
+  $searchBy = $_POST['searchBy'];
   $sql = "SELECT magazines.bibID, magazines.name, magazines.frequency, magazines.placeOfPublication, magazines.year, magazines.language,reserve.date
-  FROM magazines
-  LEFT JOIN reserve
-  ON magazines.bibID = reserve.bibID;";
+          FROM magazines
+          LEFT JOIN reserve
+          ON magazines.bibID = reserve.bibID";
+
+  if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
+    $sql .= " WHERE magazines." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
+  }
+
   $rs = mysqli_query($conn,$sql) or die(mysqli_error($conn));
   echo "<fieldset id='magazines'><legend align='left'>Magazines</legend>";
   echo "<table class='myTable'>

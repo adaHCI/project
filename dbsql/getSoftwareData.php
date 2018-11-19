@@ -1,9 +1,13 @@
 <?php
   require_once("conn.php");
+  $searchBy = $_POST['searchBy'];
   $sql = "SELECT software.bibID, software.name, software.year, software.language, software.publisher,reserve.date
-  FROM software
-  LEFT JOIN reserve
-  ON software.bibID = reserve.bibID;";
+          FROM software
+          LEFT JOIN reserve
+          ON software.bibID = reserve.bibID;";
+  if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
+    $sql .= " WHERE software." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
+  }
   $rs = mysqli_query($conn, $sql) or die(mysqli_error($conn));
   echo "<fieldset id='software'><legend align='left'>software</legend>";
   echo "<table class='myTable'>

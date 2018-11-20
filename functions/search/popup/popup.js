@@ -1,7 +1,7 @@
 function popup(){
   $(document).on("click",".popup",function(){
     $src = "../data/";
-    $src += $("#type").val() + "/";
+    $src += $(this).closest("fieldset").attr("id")+ "/";
     $src += $(this).attr("value");
     $src += ".jpg";
     $(".show").fadeIn();

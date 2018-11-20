@@ -6,7 +6,7 @@
           LEFT JOIN items
           ON magazines.bibID = items.bibID";
 
-  if(!(!isset($_POST['keyWord'])|strlen($_POST['keyWord']) == 0)){
+  if(!(!isset($_POST['keyWord'])|strlen(/.['keyWord']) == 0)){
     $sql .= " WHERE magazines." . $searchBy . " LIKE '%" . $_POST['keyWord'] . "%';";
   }
   $rs = mysqli_query($conn,$sql) or die(mysqli_error($conn));

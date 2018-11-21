@@ -23,6 +23,47 @@ $(document).ready(function(){
 						$('#reserveRecord').html(r);
 					}
 				});
+	$.ajax({
+					type: 'post',
+					url: '../functions/reserve/favourite.php',
+					data: {userID:$("#uId").text(),action:"get"},
+					success: function (r) {
+						$('#favouriteItem').html(r);
+					}
+				});
+	$(document).on("click","#submit",function(e){
+		$.ajax({
+	           type: 'post',
+	           url: '../functions/reserve/reserve.php',
+		         data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),userType:$("#uType").text()},
+		          success: function (r) {
+		            alert(r);
+								location.reload();
+		          }
+	         });
+	});
+	$(document).on("click","#favourite",function(e){
+		$.ajax({
+            type: 'post',
+            url: '../functions/reserve/favourite.php',
+            data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),action:"add"},
+            success: function (r) {
+              alert(r);
+							location.reload();
+            }
+          });
+	});
+	$(document).on("click","#delFavourite",function(e){
+		$.ajax({
+            type: 'post',
+            url: '../functions/reserve/favourite.php',
+            data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),action:"delete"},
+            success: function (r) {
+              alert(r);
+							location.reload();
+            }
+          });
+	});
 });
 </script>
 
@@ -36,6 +77,7 @@ $(document).ready(function(){
 <div class="contentBorder">
 <p id='uId' hidden='hidden'><?php echo $_SESSION['userID'];?></p>
 <p id='uType' hidden='hidden'><?php echo $_SESSION['table'];?></p>
+<div id ='favouriteItem'></div>
 <div id ='reserveRecord'></div>
 </div>
 

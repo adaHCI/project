@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2018 at 10:31 AM
+-- Generation Time: Nov 21, 2018 at 05:34 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.1.21
 
@@ -67,8 +67,8 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`bibID`, `name`, `callNumber`, `author`, `physicalDescription`, `placeOfPublication`, `year`, `language`) VALUES
-('003517953', 'Hidden Belgium.', '914.93 HID', 'Luster', '266 pages : colour illustrations, maps ; 18 cm.', 'Antwerpen :', '©2018.', 'English'),
-('003462292', 'Cinda Williams Chima', 'YF CHI', 'Chima, Cinda Williams.', '535 p. ; 21 cm.', 'New York, NY :', 'c2016', 'English'),
+('003517953', 'Hidden Belgium.', '914.93 HID', 'Luster', '266 pages : colour illustrations, maps ; 18 cm.', 'Antwerpen :', '2018.', 'English'),
+('003462292', 'Cinda Williams Chima', 'YF CHI', 'Chima, Cinda Williams.', '535 p. ; 21 cm.', 'New York, NY :', '2016', 'English'),
 ('003506576', 'The wandering mind', '153 COR', 'Corballis, Michael C', 'ix, 173 pages : illustrations ; 24 cm', 'Chicago', '2016', 'English'),
 ('003494404', 'The serpent\'s curse', 'JF ABB', 'Abbott, Tony', '485 pages : illustrations ; 21 cm', 'New York', '2014', 'English'),
 ('003494417', 'I don\'t want to be big', 'JJ PET', 'Petty, Dev', '1 volume (unpaged) : colour illustrations ; 27 cm', 'New York', '2016', 'English'),
@@ -78,6 +78,28 @@ INSERT INTO `books` (`bibID`, `name`, `callNumber`, `author`, `physicalDescripti
 ('003500680', 'Ten essential lessons of business management', '494 1784', 'Man Kuen CHAK', '258 pages', 'Hong Kong', '2017', 'Chinese'),
 ('003500632', 'Hea rich : the real guide', '563.5 7477', 'Hiten Yuen', '192 pages', 'Hong Kong', '2017', 'Chinese'),
 ('003493912', 'How to be perfect', '158 PAD', 'Padgett, Ron', '99 pages', 'Minneapolis', '2016', 'English');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favourite`
+--
+
+DROP TABLE IF EXISTS `favourite`;
+CREATE TABLE `favourite` (
+  `favouriteID` int(10) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `bibID` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `favourite`
+--
+
+INSERT INTO `favourite` (`favouriteID`, `userID`, `bibID`) VALUES
+(7, 1, '003382170'),
+(11, 1, '003494404'),
+(12, 1, '003500932');
 
 -- --------------------------------------------------------
 
@@ -98,43 +120,43 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`bibID`, `stock`, `intro`) VALUES
 ('000813254', 0, NULL),
-('000813257', 1, NULL),
-('000962622', 1, NULL),
-('001043256', 1, NULL),
-('001044490', 1, NULL),
-('001045788', 1, NULL),
-('003382170', 1, NULL),
-('003386017', 0, NULL),
-('003393321', 1, NULL),
-('003425739', 1, NULL),
-('003432369', 1, NULL),
-('003435677', 1, NULL),
+('000813257', 0, NULL),
+('000962622', 1, 'Animal Plants Magical Habitat Product Information Inspiring and dynamic guidance on the habitats of hundreds of animals, plants and their homes. Get a unique perspective on nature! See the world through the different animals in Animal Vision, or match animals and plants with their microscopic images on stunning close-ups. details! More than 1800 article screens and pop-ups provide a lot of detail! Watch and hear the secrets of the natural world! Experience the beautiful 3D habitat to learn more about plants and animals! Product Characteristics Learn how to classify plants and animals Explore the world\'s habitats Learn about plant and animal cycles and ecosystems Research on animals and threatened habitats.'),
+('001043256', 0, NULL),
+('001044490', 0, NULL),
+('001045788', 1, 'Shortly before the autumn of 1610 the renowned Ming dynasty official, painter, writer, and collector Mi Wanzhong (1570 1628) purchased a scholar\'s rock to add to his already famous collection. So mesmerized was he by this newly purchased wonder, which was said to eclipse all others he owned, that he commissioned his friend and artistic mentor Wu Bin (c. 1568 1621) to paint a scroll showing ten views of this fantastic rock. The result was a monumental scroll, more than thirty feet long, of such grandeur and originality that it is considered one of the most important Chinese paintings and a milestone in the revered Chinese tradition of rock collecting. Crags and Ravines Make a Marvellous View celebrates Wu Bin\'s monumental work through a combination of scholarly essays, translations, and reproductions. In keeping with the spirit of the Rasika imprint, this beautiful book invites both the scholar and the curious amateur to contemplate and enjoy an exceptional work of art.'),
+('003382170', 0, NULL),
+('003386017', 1, 'The Blue Ridge Parkway connects the green valleys of Shenandoah National Park to the Great Smoky Mountains. Drive America\'s most scenic highway with Moon Blue Ridge Parkway Road Trip. Inside you\'ll find: Maps and Driving Tools: 29 easy-to-use maps keep you oriented on and off the highway, along with site-to-site mileage, driving times, and detailed directions for the entire route Eat, Sleep, Stop and Explore:Listen to live bluegrass with a glass of local moonshine, drive past fields brimming with fireflies, and wander through American history. You\'ll know exactly what you want to do at each stop with lists of the best hikes, views, and more  Itineraries for Every Traveler: Drive the entire two-week route or follow strategic itineraries like \"Music of the Blue Ridge,\" including suggestions for spending time in in Washington DC, Front Royal, Waynesboro, Roanoke, Galax, Asheville, Cherokee, and Knoxville Local Expert: North Carolinian and mountaineer Jason Frye shares his love of the Great Smoky Mountains (and where to find the best barbecue!)  Planning Your Trip: Know when and where to get gas, how to avoid traffic, tips for driving in different road and weather conditions, and suggestions for LGBTQ travelers, seniors, and road trippers with kids With Moon Blue Ridge Parkway Road Trip\'s practical tips, detailed itineraries, and local insight, you\'re ready to fill up the tank and hit the road. Looking to explore more of America on wheels? Try Moon Nashville to New Orleans Road Trip! Doing more than driving through? Check out Moon Blue Ridge & Smoky Mountains or Moon North Carolina.'),
+('003393321', 0, NULL),
+('003425739', 1, 'Hit Spain\'s can\'t-miss art, sights, and bites in two weeks or less with Rick Steves Best of Spain! * Expert advice from Rick Steves on what\'s worth your time and money * Two-day itineraries covering Barcelona, Madrid, Toledo, Granada, Andalucia\'s White Hill Towns, and Sevilla * Over 60 full-color maps and vibrant photos * Rick\'s tips for beating the crowds, skipping lines, and avoiding tourist traps * The best of local culture, flavors, and haunts, including walks through the most interesting neighborhoods and museums * Trip planning strategies like how to link destinations and design your itinerary, what to pack, where to stay, and how to get around * Suggestions for side trips to Montserrat and Figueres, Basque Country, Santiago de Compostela, El Escorial, Segovia, Salamanca, Cordoba, and Spain\'s South Coast Experience Spain\'s Old World romance and New World excitement for yourself with Rick Steves Best of Spain! Planning a longer trip? Rick Steves Spain 2018 is the classic, in-depth guide to exploring the country, updated annually. Time for a quick getaway? Colorful Rick Steves Pocket Barcelona is perfect when you have a week or less.'),
+('003432369', 0, NULL),
+('003435677', 0, NULL),
 ('003443013', 0, NULL),
-('003444053', 1, NULL),
-('003462292', 1, NULL),
-('003493912', 0, NULL),
-('003494404', 1, NULL),
-('003494417', 0, NULL),
-('003496926', 1, NULL),
-('003500632', 0, NULL),
-('003500680', 1, NULL),
-('003500932', 0, NULL),
-('003505134', 1, NULL),
-('003505731', 0, NULL),
-('003506021', 1, NULL),
-('003506576', 0, NULL),
-('003508963', 0, NULL),
-('003511418', 1, NULL),
-('003515364', 1, NULL),
-('003515614', 0, NULL),
-('003515629', 1, NULL),
-('003515637', 0, NULL),
-('003515650', 1, NULL),
-('003516372', 1, NULL),
-('003517698', 1, NULL),
-('003517953', 0, NULL),
-('003518592', 1, NULL),
-('003519747', 1, NULL),
+('003444053', 1, 'Guide the children to know the spring, summer, autumn and winter, observe the color changes of the season, listen to the sound of the season, smell the smell of the season, let the children open the senses and feel the magical changes of the four seasons. Parents may also wish to grasp the autumn season, and the children to come to the autumn sunrise tour, together with the footsteps of autumn!'),
+('003462292', 1, '16-year-old Han Alister encounters three underage wizards setting fire to the sacred mountain of Hanalea. Alister is unaware that this will lead to a series of events that threaten to consume the world in chaos. To prevent the wizard Micah from using a magical amulet against him, he makes Micah give him the amulet. Later Alister learns that the amulet has an evil history, and it once belonged to the Demon King. The Demon King is an evil sorcerer who almost destroyed the world a millennia ago. Now, the wizards will stop at nothing to get their amulet back.'),
+('003493912', 1, 'Make eye contact with a tree.” “Do not practice cannibalism.” “Wear comfortable shoes.\" “Sing, every once in a while.” “In later life, become a mystic.” Offbeat, warm, and funny, Ron Padgett\'s prescriptions for human perfection springs to life in Jason Novak\'s cartoons—a delightful match-up of sensibilities. And remember: \"Don\'t give advice.\"\r\n\r\nRon Padgett\'s How Long was a Pulitzer Prize finalist in poetry and his Collected Poems won the William Carlos Williams Award from the Poetry Society of America and the Los Angeles Times Book Prize for the best poetry book of 2013. His work has been translated into eighteen languages.\r\n\r\nJason Novak is a cartoonist whose work has appeared in the New Yorker the Paris Review and the Believer among other places. He lives in Oakland, California.\r\n'),
+('003494404', 1, 'Bestselling author Tony Abbott returns with the next full-length book in the Copernicus Legacy series, a globe-trotting adventure packed with more riddles, puzzles, and secret histories. The hunt for Copernicus\'s first relic sent Wade, Darrell, Lily, and Becca to the far reaches of the world and put them in serious danger. But they never imagined Sara Kaplan—Darrell and Wade\'s mother—would be kidnapped by the conniving Galina Krause. Now they must race the evil Teutonic Order to find the Serpens relic and rescue Sara before it\'s too late.\r\n\r\nFans of Rick Riordan and Ridley Pearson will love this epic series, which is filled with suspense and action.\r\n\r\nCorrelates to the Common Core State Standards in English Language Arts\r\n'),
+('003494417', 1, '\"Reminiscent of Mo Willems\'s \'Elephant and Piggie\' series\"-Publishers Weekly\r\n\r\nFrog does NOT want to grow up. Doesn\'t need to be tall. Doesn\'t want to be able to jump high enough to see the tree frogs. He\'s just FINE being small. Besides, if you grow up, you don\'t get to do fun things like jump in mud puddles with your best friend, Pig. Do you? \r\n \r\nThis hilarious story­-which uses humor to teach that it\'s great being exactly who you are-is sure to bring a smile to every kid who just wants to stay a kid, in addition to those who are the smallest in their class. It\'s a sly and smartly funny tale that will have children and parents laughing together.\r\n'),
+('003496926', 1, 'To respond to the global need for adequate quality assurance of pharmaceuticals, WHO\'s Expert Committee in Specifications for Pharmaceutical Preparations has, over the years, made numerous recommendations to establish standards and guidelines and to promote the effective functioning of national regulatory and control systems, and the implementation of internationally-agreed standards by trained personnel.'),
+('003500632', 1, 'How to find investment and business projects that can help you make money?\r\nAfter you find it, how can you build a profitable system? What is the route? How to implement?\r\nThe answer to this series of questions is the rich experience that this book wants to share with you.\r\n\r\nMaking money with money does not mean that you have nothing to do. On the contrary, it is very hard to learn and operate at the beginning. After you have established your own system of making money, you basically don\'t have to do it, or you can make a small income. Thoughts.\r\n'),
+('003500680', 1, 'In today\'s increasingly complex environment, how can we do a good job and how can we become a good manager? As a young person who has just entered the workplace, how to interact with the environment and develop a personal career? This book is a \"compulsory course\". I hope that readers can master important business management concepts in a short period of time. At the same time, we will take practice as a starting point and hope that everyone will establish a solid conceptual foundation when starting a career, without blindly exploring and Take the first step in the world of business management with confidence.'),
+('003500932', 1, NULL),
+('003505134', 1, 'Spectacular photography, rich historical background, and essential travel information are combined in this indispensable reference for the immense, diverse, remote region at the crossroads of Europe and Asia. A country larger than Western Europe, Kazakhstan\'s vast expanse encompasses the Great Steppe, the heights of the Tien Shan in the south, the exquisite lakes and valleys of the mystical Altai mountains in the northeast, and the archaeologically rich desert coast of the Caspian Sea in the west. With independence and the discovery of oil has come rapid modernization, and Kazakhstan today stands as Central Asia\'s most stable and forward-thinking nation.'),
+('003505731', 1, 'Michelin\'s local map series with its high level of road detail is ideal for exploring the villages, towns and back roads of France. Bike paths and nature trails are indicated for outdoor fun, while suggested driving tours highlight the must-see sights of each area. Inset town maps help with navigation in and around urban areas. Clear, precise cartography with symbols conveying important travel information plus a legend in English allow travelers to quickly find their way.'),
+('003506021', 1, 'This handy A5 atlas fits in the glovebox of your car, perfect for quick referencing on the move. Including information on road map symbols, key to map page and mileage chart, this is the perfect companion for travelling through Britain and Ireland.'),
+('003506576', 1, 'If we\'ve done our job well?and, let\'s be honest, if we\'re lucky?you\'ll read to the end of this description. Most likely, however, you won\'t. Somewhere in the middle of the next paragraph, your mind will wander off. Minds wander. That\'s just how it is.\r\n \r\nThat may be bad news for me, but is it bad news for people in general? Does the fact that as much as fifty percent of our waking hours find us failing to focus on the task at hand represent a problem? Michael Corballis doesn\'t think so, and with The Wandering Mind, he shows us why, rehabilitating woolgathering and revealing its incredibly useful effects. Drawing on the latest research from cognitive science and evolutionary biology, Corballis shows us how mind-wandering not only frees us from moment-to-moment drudgery, but also from the limitations of our immediate selves. Mind-wandering strengthens our imagination, fueling the flights of invention, storytelling, and empathy that underlie our shared humanity; furthermore, he explains, our tendency to wander back and forth through the timeline of our lives is fundamental to our very sense of ourselves as coherent, continuing personalities.\r\n \r\nFull of unusual examples and surprising discoveries, The Wandering Mind mounts a vigorous defense of inattention--even as it never fails to hold the reader\'s.\r\n'),
+('003508963', 1, 'Ikebana, the ancient Japanese art of flower arranging, has never been easier—or more fun! This colorful, easy–to–follow guide will walk you through the steps of 10 different ikebana projects. Before you know it, you\'ll be creating your very own unique and beautiful flower arrangements. Creating flower arrangements is a great way to explore this time-honored Japanese art form.'),
+('003511418', 0, NULL),
+('003515364', 0, NULL),
+('003515614', 1, 'Check out Lonely Planet Vienna, our most comprehensive guidebook to the city, covering the top sights and most authentic off-beat experiences. Or check out Lonely Planet Pocket Vienna, a handy-sized guide focused on the can\'t-miss experiences for a quick trip.\r\n\r\nAbout Lonely Planet: Since 1973, Lonely Planet has become the world\'s leading travel media company with guidebooks to every destination, an award-winning website, mobile and digital travel products, and a dedicated traveller community. Lonely Planet covers must-see spots but also enables curious travellers to get off beaten paths to understand more of the culture of the places in which they find themselves. The world awaits!'),
+('003515629', 0, NULL),
+('003515637', 1, 'TripAdvisor Travelers\' Choice Awards 2012, 2013, 2014, 2015 and 2016 winner in Favorite Travel Guide category\r\n\r\n\'Lonely Planet guides are, quite simply, like no other.\' - New York Times\r\n\r\n\'Lonely Planet. It\'s on everyone\'s bookshelves; it\'s in every traveller\'s hands. It\'s on mobile phones. It\'s on the Internet. It\'s everywhere, and it\'s telling entire generations of people how to travel the world.\' - Fairfax Media (Australia)'),
+('003515650', 0, NULL),
+('003516372', 1, 'A fact-filled book showing the most famous and interesting sights in Britain and Northern Ireland, and maps to stick them on. Each double page shows a region with key geographic and historic features, towns and fun places to visit.'),
+('003517698', 0, NULL),
+('003517953', 1, 'Journalist Derek Blyth was born in the U.K. but has lived in Belgium for more than 25 years. He has written countless articles about Belgian cities (for example as editor-in-chief of The Bulletin) and books like Flemish Cities Explored. He is the author of The 500 Hidden Secrets of Brussels, Antwerp, Ghent, and Flanders Fields and the Belgian Coast. This brand new guide is his personal ode to the most beautiful and intriguing spots in what he calls \'the world\'s strangest country\''),
+('003518592', 1, 'Explore the City: Navigate by neighborhood or by activity with color-coded maps, or follow turn-by-turn directions for a self-guided neighborhood walk.\r\nGet a Taste of the City: Sample Chicago beef at a classic steakhouse, grab a gourmet hot dog, or pick from dozens of high-end farm-to-table restaurants but don\'t forget to try the deep-dish pizza!'),
+('003519747', 1, 'From Lonely Planet, the world\'s leading travel guide publisher\r\n\r\nDurable and waterproof, with a handy slipcase and an easy-fold format, Lonely Planet Seattle City Map is your conveniently-sized passport to traveling with ease. Get more from your map and your trip with images and information about top city attractions, walking tour routes, transport maps, itinerary suggestions, extensive street and site index, and practical travel tips and directory. With this easy-to-use, full colour navigation tool in your back pocket, you can truly get to the heart of Seattle, so begin your journey now!'),
 ('003519750', 0, NULL);
 
 -- --------------------------------------------------------
@@ -352,6 +374,14 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`bibID`);
 
 --
+-- Indexes for table `favourite`
+--
+ALTER TABLE `favourite`
+  ADD PRIMARY KEY (`favouriteID`),
+  ADD KEY `fk8` (`bibID`),
+  ADD KEY `fk9` (`userID`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
@@ -412,10 +442,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `favourite`
+--
+ALTER TABLE `favourite`
+  MODIFY `favouriteID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserveID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `reserveID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -426,6 +462,13 @@ ALTER TABLE `reserve`
 --
 ALTER TABLE `alumni`
   ADD CONSTRAINT `fk1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
+
+--
+-- Constraints for table `favourite`
+--
+ALTER TABLE `favourite`
+  ADD CONSTRAINT `fk8` FOREIGN KEY (`bibID`) REFERENCES `items` (`bibID`),
+  ADD CONSTRAINT `fk9` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
 
 --
 -- Constraints for table `non_teachingstaff`

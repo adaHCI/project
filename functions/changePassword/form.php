@@ -18,7 +18,7 @@ $form = <<<EOD
     <tr></tr>
     <tr><td align="right">Retype password:</td><td><input type="password" required="required"/></td></tr>
     <tr></tr>
-    <tr><td align="right">New password:</td><td><input name="editNewPwd" type="password" required="required"/></td></tr>
+    <tr><td align="right">New password:</td><td><input name="editNewPwd" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="at least one number and one letter, and at least 8 or more characters" required="required"/></td></tr>
     <tr><td colspan="2"><input type="submit" style="float: right"/></td></tr>
   </table>
 </form>

@@ -1,10 +1,10 @@
 .popup{
   cursor: pointer;
-
 }
 .show{
     z-index: 99;
     display: none;
+    transition: all 5s ease-in-out;
 }
 .show .overlay{
     width: 100%;
@@ -16,7 +16,7 @@
 
 }
 .show .img-show{
-    width: 200px;
+    width: 600px;
     height: 300px;
     background: #FFF;
     position: absolute;
@@ -35,9 +35,19 @@
     cursor: pointer;
 }
 .img-show .popItem{
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 300px;
     position: absolute;
     top: 0;
     left: 0;
+}
+.img-show p{
+
+  position: absolute;
+  left:200;
+}
+.img-show .popText{
+  position: absolute;
+  top:40;
+  left:200;
 }

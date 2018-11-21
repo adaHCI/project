@@ -14,9 +14,7 @@
         $strRecord .= "</td>";
         $strRecord .= "<td>" .$rc['name'] ."</td>";
         $strRecord .= "<td>" .$strDate;
-        if(date('m/d/Y') == $strDate){
-          $strRecord .= "<img class='cancel' value='".$rc['reserveID']."' src='../images/crossbox.png' width='20px' height='20px'/>";
-        }
+        $strRecord .= "<img class='cancel' value='".$rc['reserveID']."' src='../images/crossbox.png' width='20px' height='20px'/>";
         $strRecord .= "</td>";
         $strRecord .= "</tr>";
       }

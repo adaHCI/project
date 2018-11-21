@@ -7,7 +7,7 @@
 <?php
   require_once('dbsql/conn.php');
 $email=$_REQUEST["userEmail"];
-$sql = "select * from forget where userEmail='$email'";
+$sql = "select * from user where userEmail='$email'";
 $query = mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($query);
 

@@ -16,14 +16,43 @@
 <script>
 $(document).ready(function(){
 	$("#bar2").addClass("active");
+	setInterval(function() {
+		var d = new Date();
+		var time = time = d.toLocaleTimeString();
+    $('#timer').html(time);
+}, 1000);
 	/*handling searching (type)*/
 	popup();
 	search("#type","#searchBy","#keyWord");
+
 	$(document).on("click","#submit",function(e){
 		$.ajax({
             type: 'post',
             url: '../functions/reserve/reserve.php',
             data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),userType:$("#uType").text()},
+            success: function (r) {
+              alert(r);
+							location.reload();
+            }
+          });
+	});
+
+	$(document).on("click","#favourite",function(e){
+		$.ajax({
+            type: 'post',
+            url: '../functions/reserve/favourite.php',
+            data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),action:"add"},
+            success: function (r) {
+              alert(r);
+							location.reload();
+            }
+          });
+	});
+	$(document).on("click","#delFavourite",function(e){
+		$.ajax({
+            type: 'post',
+            url: '../functions/reserve/favourite.php',
+            data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),action:"delete"},
             success: function (r) {
               alert(r);
 							location.reload();

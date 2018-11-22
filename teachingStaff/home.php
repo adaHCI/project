@@ -13,6 +13,11 @@
 <script>
 $(document).ready(function(){
 	$("#bar1").addClass("active");
+	setInterval(function() {
+		var d = new Date();
+		var time = time = d.toLocaleTimeString();
+    $('#timer').html(time);
+}, 1000);
 	popup();
 	cancel();
 	$.ajax({
@@ -23,6 +28,17 @@ $(document).ready(function(){
 						$('#reserveRecord').html(r);
 					}
 				});
+	$(document).on("click","#submit",function(e){
+		$.ajax({
+	           type: 'post',
+	           url: '../functions/reserve/reserve.php',
+		         data: {bibID:$(e.target).attr("alt"),userID:$("#uId").text(),userType:$("#uType").text()},
+		          success: function (r) {
+		            alert(r);
+								location.reload();
+		          }
+	         });
+	});
 });
 </script>
 

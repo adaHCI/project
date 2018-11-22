@@ -13,6 +13,11 @@
 <script>
 $(document).ready(function(){
 	$("#bar1").addClass("active");
+	setInterval(function() {
+		var d = new Date();
+		var time = time = d.toLocaleTimeString();
+    $('#timer').html(time);
+}, 1000);
 	popup();
 	cancel();
 	$.ajax({

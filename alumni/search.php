@@ -16,6 +16,11 @@
 <script>
 $(document).ready(function(){
 	$("#bar2").addClass("active");
+	setInterval(function() {
+		var d = new Date();
+		var time = time = d.toLocaleTimeString();
+    $('#timer').html(time);
+}, 1000);
 	/*handling searching (type)*/
 	popup();
 	search("#type","#searchBy","#keyWord");

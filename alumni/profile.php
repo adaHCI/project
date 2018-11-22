@@ -8,6 +8,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+	setInterval(function() {
+		var d = new Date();
+		var time = time = d.toLocaleTimeString();
+    $('#timer').html(time);
+}, 1000);
 	$('form').on('submit',function(){
     if($(this).find('input[name="editNewPwd"]').val() != $(this).find('input[name="confirmNewPwd"]').val()){
         // show error

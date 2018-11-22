@@ -35,7 +35,7 @@ CREATE TABLE `alumni` (
   `userID` int(11) NOT NULL,
   `maxReserve` int(2) NOT NULL DEFAULT '3',
   `currReserve` int(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `alumni`

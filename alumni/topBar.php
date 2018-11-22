@@ -23,6 +23,7 @@
       <li><a class="barItem" href="logout.php">Logout</a></li>
       <li id="bar1"><a class="barItem" href="home.php">Reserve</a></li>
       <li id="bar2"><a class="barItem" href="search.php">Search</a></li>
+      <li id="bar3"><a class="barItem" href="favourite.php">Favourite</a>
     </ul>
   </div>
 EOD;

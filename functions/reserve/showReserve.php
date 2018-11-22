@@ -14,7 +14,7 @@
         $strRecord .= "</td>";
         $strRecord .= "<td>" .$rc['name'] ."</td>";
         $strRecord .= "<td>" .$strDate;
-        $strRecord .= "<img class='cancel' value='".$rc['reserveID']."' src='../images/crossbox.png' width='20px' height='20px'/>";
+        $strRecord .= "<img class='cancel' style='cursor: pointer;' value='".$rc['reserveID']."' src='../images/crossbox.png' width='20px' height='20px'/>";
         $strRecord .= "</td>";
         $strRecord .= "</tr>";
       }

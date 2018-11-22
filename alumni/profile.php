@@ -8,7 +8,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-	$("#bar1").addClass("active");
+	$('form').on('submit',function(){
+    if($(this).find('input[name="editNewPwd"]').val() != $(this).find('input[name="confirmNewPwd"]').val()){
+        // show error
+				alert("The new password not match the retype password!");
+        return false;
+    }
+	});
 });
 </script>
 <body>

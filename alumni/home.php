@@ -23,14 +23,6 @@ $(document).ready(function(){
 						$('#reserveRecord').html(r);
 					}
 				});
-	$.ajax({
-					type: 'post',
-					url: '../functions/reserve/favourite.php',
-					data: {userID:$("#uId").text(),action:"get"},
-					success: function (r) {
-						$('#favouriteItem').html(r);
-					}
-				});
 	$(document).on("click","#submit",function(e){
 		$.ajax({
 	           type: 'post',

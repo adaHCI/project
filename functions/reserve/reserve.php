@@ -16,7 +16,8 @@
     mysqli_query($conn,$sql);
     $sql = "UPDATE $_POST[userType] SET currReserve = currReserve + 1 WHERE userID = $_POST[userID]";
     mysqli_query($conn,$sql);
-    echo "You have successfully reserved this book!";
+    echo "You have successfully reserved this book!\n";
+    echo "Please take it within 3 days!";
   }
 
 

@@ -49,7 +49,7 @@
   $mapRecord = getRecordString($sql,$conn);
 
   echo "<h3>Reserve Records</h3>";
-
+  echo "<br/>All reserved item should be taken within 3 days!";
   echo "<fieldset id='books'><legend align='left'>Books</legend>";
   echo $bookRecord;
   echo "</fieldset>";
